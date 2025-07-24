@@ -188,4 +188,4 @@ Esta atividade também te ensina a:
 - **Criar um portfólio online** com seus projetos
 
 ---
-**Professor:** Este exercício testa conhecimentos fundamentais de HTML, CSS, JavaScript, depuração, versionamento com Git/GitHub e deploy - habilidades essenciais para qualquer desenvolvedor web moderno.
+Este exercício testa conhecimentos fundamentais de HTML, CSS, JavaScript, depuração, versionamento com Git/GitHub e deploy - habilidades essenciais para qualquer desenvolvedor web moderno.
