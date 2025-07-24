@@ -1,0 +1,628 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+
+/* **** */
+/* BASE */
+/* **** */
+/* código que define layout, espaçamento e alinhamento do website */
+
+:root {
+  --primaria: #e6b07e;
+  --secundaria: #665e57;
+  --tom-1: #ead8c7;
+  --tom-2: #b38962;
+  --tom-3: #664e38;
+
+  background: var(--tom-1);
+}
+
+/* SEÇÃO HERO */
+.hero {
+  justify-content: space-around;
+  padding: 64px 16px;
+
+  & header {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    & .logo-hero {
+      position: absolute;
+      right: -80px;
+      opacity: 0.7;
+      z-index: 10;
+    }
+  }
+
+  & .hero-paragraph {
+    width: 272px;
+    align-self: center;
+  }
+
+  & #hero-slider {
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  & span {
+    color: var(--tom-3);
+    font-weight: 800;
+  }
+
+  & img {
+    height: 100%;
+  }
+
+  /* RESPONSIVO TABLET */
+  @media (min-width: 768px) {
+    padding: 64px;
+
+    & #hero-slider {
+      height: 380px;
+    }
+
+    & img {
+      height: initial;
+      width: 100%;
+    }
+  }
+}
+
+/* SEÇÃO A BARBEARIA */
+.a-barbearia-section {
+  justify-content: space-between;
+
+  & .card {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 8px 12px 0px 0px;
+
+    border-top: 3px;
+    border-right: 3px;
+    border-left: 0px;
+    border-bottom: 0px;
+    border-style: solid;
+
+    background-color: var(--tom-1);
+
+    border-image-source: linear-gradient(
+      30deg,
+      var(--tom-1) 60%,
+      var(--tom-3) 100%
+    );
+    border-image-slice: 1;
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  & [role="mask"] {
+    width: 420px;
+    height: 420px;
+    border-radius: 100%;
+    align-items: center;
+
+    z-index: -10;
+    position: absolute;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & .bolinhas {
+    position: absolute;
+    left: 0px;
+    z-index: -20;
+
+  @media (min-width: 768px) {
+    & [role="mask"] {
+      width: 620px;
+      height: 620px;
+      right: -100px;
+    }
+
+    & .card {
+      width: 370px;
+    }
+  }
+}
+
+.servicos-section {
+  padding: 64px 0px;
+
+  & .bolinhas {
+    width: 270px;
+    height: 48px;
+  }
+
+  & h2 {
+    color: var(--tom-3, #664e38);
+    font-family: "Source Serif 4";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  & article {
+    width: 40%;
+    margin-right: 32px;
+  }
+
+  & article p {
+    text-align: center;
+  }
+
+  & [role="mask"] {
+    width: 160px;
+    height: 320px;
+    flex-shrink: 0;
+    border-radius: 0px 8px 8px 0px;
+  }
+
+  & [role="mask"] img {
+    height: 140%;
+    transform: scaleX(-1)
+  }
+
+  @media (min-width: 768px) {
+    padding: 96px 64px;
+
+    & [role="mask"] {
+      width: 180px;
+      height: 360px;
+      border-radius: 8px;
+    }
+
+    & article {
+      justify-content: center;
+    }
+
+    & article a {
+      margin-top: 20px;
+    }
+  }
+}
+
+.contato-section {
+  padding: 64px 16px;
+
+  & h1 {
+    margin: 0px 16px;
+  }
+
+  & .buttons-spacer {
+    margin: 0px 16px;
+  }
+
+  & a {
+    width: 100%;
+  }
+
+  & .whatsapp-link {
+    background-color: color-mix(in srgb, #128c7e 100%, white 20%);
+    color: var(--tom-1);
+  }
+
+  @media (min-width: 768px) {
+    padding: 64px;
+    justify-content: space-around !important;
+
+    & [role="mask"] {
+      height: 400px;
+    }
+
+  & .buttons-spacer {
+    felx-direction: row;
+    gap: 16px;
+    }
+  }
+}
+
+.unidades-section {
+  height: fit-content;
+  padding: 64px 0;
+
+  & .map {
+    margin: 0 auto;
+  }
+
+  & p {
+    margin: 16px 32px;
+  }
+
+  & swiper-slide:not(.swiper-slide-active) {
+    transform: scale(0.9);
+  }
+
+  @media (min-width: 768px) {
+    padding-bottom: 128px;
+
+    & p {
+      margin: 64px 128px;
+    }
+  }
+}
+
+/* *********** */
+/* COMPONENTES */
+/* *********** */
+/* código que será reutilizado por todo website */
+
+main {
+  overflow: hidden;
+}
+
+/* Seção */
+setion,
+dialog {
+  /* Smallest View Height */
+  height: 100svh;
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 64px 32px;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @media (min-width: 768px) {
+    padding: 64px;
+  }
+}
+
+/* Título */
+h1 {
+  color: var(--secundaria);
+  font-family: Exo;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 100%; /* 48px */
+
+  margin: 0;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Logo */
+[role="logo"] {
+  width: 160px;
+  height: 160px;
+
+  background-color: black;
+
+  mask: url("public/logo.svg") no-repeat center;
+  mask-size: 100%;
+}
+
+/* Máscara */
+[role="mask"] {
+  width: 100%;
+  height: 260px;
+  border-raduis: 8px;
+
+  display: flex;
+
+  overflow: hidden;
+  filter: drop-shadow(0px 24px 34px #00000025);
+}
+
+/* Páragrafo */
+p {
+  font-size: 20px;
+  font-family: "Source Serif 4", serif;
+  opacity: 0.65;
+
+  &.text-justify {
+    text-align: justify;
+  }
+
+  /* text-small */
+  &.text-sm {
+    font-size: 16px;
+  }
+}
+
+/* PROBLEMA 9: Seletor de botão quebrado */
+[role="botao"],
+button {
+  /* Layout */
+  width: fit-content;
+  display: inline-flex;
+  padding: 8px 24px;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  /* Estilo */
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--tom-2) 100%, white 20%);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+
+  /* Tipografia */
+  color: var(--tom-3, #664e38);
+  font-family: Exo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+
+  transition: all 150ms;
+
+  &:hover {
+    background: color-mix(in srgb, var(--tom-2) 100%, black 20%);
+    color: var(--tom-1);
+  }
+
+  &:active {
+    background: color-mix(in srgb, var(--tom-2) 100%, white 40%);
+  }
+}
+
+.bolinhas {
+  widht: 300px;
+  height: 300px;
+
+  background-color: var(--tom-3);
+  mask: url("public/bolinhas.svg") no-repeat center;
+  mask-size: 100%;
+
+  &.fileira {
+    mask: url("public/fileira-de-bolinhas.svg") no-repeat center;
+    mask-size: 100%;
+  }
+}
+
+.whatsapp-icon {
+  width: 24px;
+  height: 24px;
+
+  background-color: currentColor;
+  mask: url("public/whatsapp.svg") no-repeat center;
+  mask-size: 100%;
+}
+
+.map {
+  width: fit-content;
+  /* PROBLEMA 11: Referência à variável CSS errada */
+  background-color: var(--cor-secundaria);
+  border-radius: 8px;
+  /* espessura - estilo - cor */
+  border: 4px solid var(--cor-secundaria);
+  overflow: hidden;
+
+  & .map-mask {
+    width: 272px;
+    height: 156px;
+
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & address {
+    padding: 8px;
+  }
+
+  & h2 {
+    margin: 0;
+    color: #fff;
+    font-family: Exo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 108%; /* 17.28px */
+  }
+
+  & h3 {
+    margin: 0;
+    color: #fff;
+    font-family: Exo;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 108%; /* 8.64px */
+  }
+
+  @media (min-width: 768px) {
+    & .map-mask {
+      width: 372px;
+      height: 256px;
+    }
+  }
+}
+
+/* COMPONENTE RODAPÉ */
+footer {
+  color: white;
+
+  & [role="logo"] {
+    width: 64px;
+    height: 64px;
+    background-color: white;
+  }
+
+  & div:has(nav) {
+    background-color: var(--tom-3);
+    padding: 48px 32px;
+  }
+
+  & div:has(p) {
+    padding: 12px 0;
+    background-color: color-mix(in srgb, var(--tom-3) 100%, black 40%);
+  }
+
+  & a {
+    font-size: 12px !important;
+  }
+
+  & p,
+  a {
+    color: #fff;
+    font-family: Exo;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 8px */
+
+    margin: 0;
+    opacity: 100;
+    text-decoration: none;
+
+    transition: all 150ms;
+  }
+
+  & a:hover {
+    color: var(--tom-1);
+  }
+
+  @media (min-width: 768px) {
+    & div:has(nav) {
+      padding: 64px;
+    }
+  }
+}
+
+dialog {
+  color: #fff;
+  font-famly: Exo;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  margin: 0;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+
+  opacity: 0;
+  transition: all 300ms allow-discrete;
+
+  &[open] {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  & [role="logo"] {
+    width: 96px;
+    height: 96px;
+    background-color: white;
+  }
+
+  & a,
+  svg {
+    color: white;
+    text-decoration: none;
+  }
+
+  & nav {
+    text-align: right;
+  }
+}
+
+/* PROBLEMA 12: Classe CSS com nome errado */
+nav.principal {
+  width: 100%;
+  padding: 24px 32px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  mix-blend-mode: difference;
+
+  transition: margin-top 1s;
+
+  & [role="logo"] {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+  }
+
+  & svg {
+    color: white;
+  }
+}
+
+/* PROBLEMA 13: Seletor CSS quebrado */
+dialog[open] + nav.principal {
+  margin-top: -96px;
+}
+
+/* Swiper container */
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform 500ms;
+}
+
+/* *********** */
+/* UTILITÁRIOS */
+/* *********** */
+
+.translate-y-center {
+  translate: 0 -50%;
+  top: 50%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.gap-1 {
+  gap: 4px;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+.gap-8 {
+  gap: 32px;
+}
